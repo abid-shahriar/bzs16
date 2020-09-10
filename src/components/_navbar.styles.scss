@@ -1,0 +1,39 @@
+.navbar {
+  height: 7rem;
+  width: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(153, 205, 50, 0.7),
+    rgba(0, 128, 0, 0.7)
+  );
+  @include flexbox;
+  justify-content: flex-end;
+
+  &__lists {
+    @include flexbox;
+    padding: 0 2rem;
+
+    &:hover a:not(:hover) {
+      opacity: 0.6;
+    }
+
+    li {
+      a {
+        display: inline-block;
+        font-size: 2.8rem;
+        color: var(--white);
+        font-weight: 600;
+        text-transform: capitalize;
+        height: 7rem;
+        @include flexbox;
+        padding: 0 2rem;
+
+        transition: color 0.25s, opacity 0.25s, transform 0.25s linear;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}

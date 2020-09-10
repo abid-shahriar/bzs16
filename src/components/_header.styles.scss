@@ -1,0 +1,14 @@
+.header {
+  height: 40rem;
+  width: 100%;
+  background-image: linear-gradient(
+      120deg,
+      rgba(0, 128, 0, 0.5),
+      rgba(153, 205, 50, 0.5)
+    ),
+    url(../assets/img/header.jpg);
+  background-size: cover;
+  background-position: center center;
+  @include flexbox;
+  align-items: flex-end;
+}

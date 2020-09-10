@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --black: #1f1f1f;
+  --white: #dfdfdf;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: var(--white);
+  min-height: 100vh;
+  font-family: "Roboto Slab", serif;
+  //   @include flexbox;
+}
+
+#root {
+  max-width: 1400px;
+  margin: auto;
+}
