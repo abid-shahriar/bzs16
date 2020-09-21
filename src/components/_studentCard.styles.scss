@@ -1,0 +1,20 @@
+.student-card-container {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stdent-card {
+  flex-basis: 45%;
+  //   border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.315);
+  margin: 2rem 0;
+  padding: 2rem;
+
+  h1 {
+    text-transform: capitalize;
+  }
+}
