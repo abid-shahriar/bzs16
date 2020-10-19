@@ -1,20 +1,86 @@
 .student-card-container {
-  border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.stdent-card {
+.student-card {
   flex-basis: 45%;
-  //   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.315);
   margin: 2rem 0;
-  padding: 2rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+
+  @media (max-width: 1050px) {
+    flex-basis: 90%;
+  }
+
+  .image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 2rem;
+    @media (max-width: 600px) {
+      height: 80px;
+      width: 80px;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      border: 2px solid crimson;
+    }
+  }
 
   h1 {
     text-transform: capitalize;
+    @media (max-width: 600px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  h2 {
+    color: grey;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  @media (max-width: 700px) {
+    justify-content: space-evenly;
+    padding: 2rem 0;
+  }
+
+  button {
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.315);
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 1rem;
+
+    @media (max-width: 700px) {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
 }

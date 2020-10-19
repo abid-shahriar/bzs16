@@ -12,8 +12,8 @@ const Home = () => {
         <h4>
           It is just a regular website where you can find almost everyone’s info
           of our batch. Well, I said almost because as we all know that bzs has
-          every kind of students including ghosts... As a result we do not their
-          info.
+          every kind of students including ghosts... As a result we do not know
+          their info.
         </h4>
       </div>
     </>

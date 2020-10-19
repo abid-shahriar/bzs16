@@ -12,14 +12,6 @@ const navItems = [
     name: "student-info",
     to: "/student-info",
   },
-  {
-    name: "gallery",
-    to: "/gallery",
-  },
-  {
-    name: "blog",
-    to: "/blog",
-  },
 ];
 
 const Navbar = () => {

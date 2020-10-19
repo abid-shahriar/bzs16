@@ -4,6 +4,7 @@ export const StudentsInfoContext = createContext();
 
 const AllStudentsInfo = (props) => {
   const [fetchedData, setFetchedData] = useState();
+  const [reset, setReset] = useState();
 
   useEffect(() => {
     fetch(
@@ -12,11 +13,14 @@ const AllStudentsInfo = (props) => {
       .then((res) => res.json())
       .then((data) => {
         setFetchedData(data);
+        setReset(data);
       });
   }, []);
 
   return (
-    <StudentsInfoContext.Provider value={fetchedData}>
+    <StudentsInfoContext.Provider
+      value={{ fetchedData, setFetchedData, reset }}
+    >
       {props.children}
     </StudentsInfoContext.Provider>
   );
