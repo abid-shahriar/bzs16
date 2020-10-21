@@ -3,41 +3,54 @@ import React, { useContext } from "react";
 import { StudentsInfoContext } from "../states/AllStudentsInfo";
 
 const StudentCard = () => {
-  const { fetchedData, setFetchedData, reset } = useContext(
-    StudentsInfoContext
-  );
-
-  // console.log(fetchedData);
-
-  // const sectionA = () => {
-
-  // };
-
-  // let allData;
-
-  // if (fetchedData) {
-  //   allData = [...fetchedData];
-  // }
-
-  // console.log(allData);
+  const {
+    fetchedData,
+    setFetchedData,
+    reset,
+    setSearchInput,
+    SearchInput,
+  } = useContext(StudentsInfoContext);
 
   const filterSections = (section) => {
     const sectionAdata = reset.filter((data) => data.section === section);
     setFetchedData(sectionAdata);
+    setSearchInput("");
   };
 
   const allSections = () => {
     setFetchedData(reset);
+    setSearchInput("");
+  };
+
+  const handleSearchInput = (e) => {
+    let inputValue = e.target.value;
+    setSearchInput(inputValue);
+
+    const filteredData = reset.filter((data) => {
+      console.log(inputValue);
+      return data.Name.toLowerCase().includes(SearchInput.toLowerCase());
+    });
+
+    setFetchedData(filteredData);
   };
 
   return (
     <div className="main-container">
       <div className="buttons">
-        <button onClick={() => allSections()}>All Sec.</button>
-        <button onClick={() => filterSections("A")}>Sec: A</button>
-        <button onClick={() => filterSections("B")}>Sec: B</button>
-        <button onClick={() => filterSections("C")}>Sec: C</button>
-        <button onClick={() => filterSections("D")}>Sec: D</button>
+        <h5>Sections:</h5>
+        <button onClick={() => allSections()}>All</button>
+        <button onClick={() => filterSections("A")}>A</button>
+        <button onClick={() => filterSections("B")}>B</button>
+        <button onClick={() => filterSections("C")}>C</button>
+        <button onClick={() => filterSections("D")}>D</button>
+      </div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="search by name"
+          onChange={handleSearchInput}
+          value={SearchInput}
+        />
       </div>
       <div className="student-card-container">
         {fetchedData &&

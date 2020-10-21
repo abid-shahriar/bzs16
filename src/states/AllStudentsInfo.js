@@ -5,6 +5,7 @@ export const StudentsInfoContext = createContext();
 const AllStudentsInfo = (props) => {
   const [fetchedData, setFetchedData] = useState();
   const [reset, setReset] = useState();
+  const [SearchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     fetch(
@@ -19,7 +20,13 @@ const AllStudentsInfo = (props) => {
 
   return (
     <StudentsInfoContext.Provider
-      value={{ fetchedData, setFetchedData, reset }}
+      value={{
+        fetchedData,
+        setFetchedData,
+        reset,
+        SearchInput,
+        setSearchInput,
+      }}
     >
       {props.children}
     </StudentsInfoContext.Provider>
