@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-
+import bzsLogo from "../assets/img/bzs-logo.png";
 import { StudentsInfoContext } from "../states/AllStudentsInfo";
+import DetailedInfo from "./DetailedInfo";
 
 const StudentCard = () => {
   const {
@@ -9,6 +10,8 @@ const StudentCard = () => {
     reset,
     setSearchInput,
     SearchInput,
+    setSingleStudentInfo,
+    setModalState,
   } = useContext(StudentsInfoContext);
 
   const filterSections = (section) => {
@@ -27,7 +30,6 @@ const StudentCard = () => {
     setSearchInput(inputValue);
 
     const filteredData = reset.filter((data) => {
-      console.log(inputValue);
       return data.Name.toLowerCase().includes(SearchInput.toLowerCase());
     });
 
@@ -54,21 +56,30 @@ const StudentCard = () => {
       </div>
       <div className="student-card-container">
         {fetchedData &&
-          fetchedData
-            .sort((a, b) => a.section > b.section)
-            .map((data) => (
-              <div className="student-card" key={data.Timestamp}>
-                <div className="image">
-                  {/* <img src={data.photo} loading="lazy" alt="student bzs" /> */}
-                </div>
-                <div className="short-info">
-                  <h1>{data.Name.toLowerCase()}</h1>
-                  <h2>Section: {data.section}</h2>
-                  <h2>Class-10-Roll: {data.class10Roll}</h2>
-                </div>
+          fetchedData.map((data) => (
+            <div className="student-card" key={data.Timestamp}>
+              <div className="image">
+                <img src={bzsLogo} loading="lazy" alt="student bzs" />
               </div>
-            ))}
+              <div className="short-info">
+                <h1>{data.Name.toLowerCase()}</h1>
+                <h2>Section: {data.section}</h2>
+                <h2>Class-10-Roll: {data.class10Roll}</h2>
+              </div>
+              <div className="more-info-btn">
+                <button
+                  onClick={() => {
+                    setSingleStudentInfo(data);
+                    setModalState(true);
+                  }}
+                >
+                  Detailed Info &rarr;
+                </button>
+              </div>
+            </div>
+          ))}
       </div>
+      <DetailedInfo />
     </div>
   );
 };

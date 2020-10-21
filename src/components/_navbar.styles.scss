@@ -9,9 +9,17 @@
   @include flexbox;
   justify-content: flex-end;
 
+  @media (max-width: 700px) {
+    height: 4rem;
+  }
+
   &__lists {
     @include flexbox;
     padding: 0 2rem;
+
+    @media (max-width: 700px) {
+      padding: 0 1rem;
+    }
 
     &:hover a:not(:hover) {
       opacity: 0.6;
@@ -27,8 +35,13 @@
         height: 7rem;
         @include flexbox;
         padding: 0 2rem;
-
         transition: color 0.25s, opacity 0.25s, transform 0.25s linear;
+
+        @media (max-width: 700px) {
+          font-size: 1.6rem;
+          padding: 0 1rem;
+          height: 4rem;
+        }
 
         &:hover {
           color: white;

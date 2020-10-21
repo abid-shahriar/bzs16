@@ -9,7 +9,7 @@ const navItems = [
     to: "/",
   },
   {
-    name: "student-info",
+    name: "students-info",
     to: "/student-info",
   },
 ];

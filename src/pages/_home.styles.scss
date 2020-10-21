@@ -1,12 +1,13 @@
 .home {
   height: calc(100vh - 40vh);
   @include flexbox(column);
-  justify-content: space-evenly;
+  justify-content: center;
 
   h3 {
     font-size: clamp(2rem, 2.5vw, 3.5rem);
     text-align: center;
     padding: 0 2rem;
+    margin-bottom: 3rem;
   }
 
   h4 {

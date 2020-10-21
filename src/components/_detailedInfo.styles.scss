@@ -1,0 +1,99 @@
+.detailed-info {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #35363a;
+  transform: translateX(100%);
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    // overflow-y: scroll;
+    overflow: auto;
+    height: 100%;
+    padding: 0 2rem;
+    // padding-top: 40rem;
+    // padding-bottom: 20rem;
+    position: relative;
+
+    .inner-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 0;
+    }
+
+    .single-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 230px;
+      width: 230px;
+      border-radius: 50%;
+      box-shadow: inset -2.5px 2.5px 1px 0px rgba(darken(#1f222b, 15%), 0.4),
+        inset 3px -3px 2px 0px rgba(darken(#1f222b, 5%), 0.1),
+        -1px 1px 3px 0px rgba(lighten(#1f222b, 15%), 0.5);
+
+      margin-bottom: 2rem;
+
+      img {
+        align-self: center;
+        display: block;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+      }
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      align-self: center;
+      box-shadow: inset -2.5px 2.5px 1px 0px rgba(darken(#1f222b, 15%), 0.4),
+        inset 3px -3px 2px 0px rgba(darken(#1f222b, 5%), 0.1),
+        -1px 1px 3px 0px rgba(lighten(#1f222b, 15%), 0.5);
+      padding: 1.5rem;
+      border-radius: 5px;
+      color: white;
+      font-weight: 400;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 5px;
+      color: whitesmoke;
+      box-shadow: inset -2.5px 2.5px 1px 0px rgba(darken(#1f222b, 15%), 0.4),
+        inset 3px -3px 2px 0px rgba(darken(#1f222b, 5%), 0.1),
+        -1px 1px 3px 0px rgba(lighten(#1f222b, 15%), 0.5);
+
+      span {
+        margin-left: 1rem;
+        color: white;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+.detailed-info.show-hide {
+  transform: translateX(0);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
