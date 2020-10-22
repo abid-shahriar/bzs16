@@ -8,6 +8,7 @@ const AllStudentsInfo = (props) => {
   const [SearchInput, setSearchInput] = useState("");
   const [SingleStudentInfo, setSingleStudentInfo] = useState();
   const [ModalState, setModalState] = useState(false);
+  const [SelectedSection, setSelectedSection] = useState("all");
 
   useEffect(() => {
     fetch(
@@ -32,6 +33,8 @@ const AllStudentsInfo = (props) => {
         SingleStudentInfo,
         setModalState,
         ModalState,
+        SelectedSection,
+        setSelectedSection,
       }}
     >
       {props.children}

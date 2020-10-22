@@ -93,7 +93,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: white;
   text-decoration: underline;
   cursor: pointer;
@@ -101,7 +101,7 @@
 
 .single-img.img-loading {
   &::before {
-    content: "loading image...";
+    content: "loading...ding...ding...";
     position: absolute;
     height: 100%;
     width: 100%;
@@ -112,5 +112,18 @@
     justify-content: center;
     color: white;
     font-size: 1.6rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: white;
+    animation: circleAnimation 2s ease-in-out infinite;
   }
 }

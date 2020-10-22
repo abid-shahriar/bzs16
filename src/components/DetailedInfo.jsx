@@ -19,7 +19,7 @@ function DetailedInfo() {
         <div className="container">
           <div className="inner-container">
             <div
-              className={ModalState ? "single-img img-loading" : "single-img "}
+              className={ModalState ? "single-img img-loading" : "single-img"}
             >
               <img
                 src={ModalState ? `${SingleStudentInfo.photo}` : ""}

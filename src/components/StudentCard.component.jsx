@@ -12,6 +12,8 @@ const StudentCard = () => {
     SearchInput,
     setSingleStudentInfo,
     setModalState,
+    SelectedSection,
+    setSelectedSection,
   } = useContext(StudentsInfoContext);
 
   const filterSections = (section) => {
@@ -34,17 +36,58 @@ const StudentCard = () => {
     });
 
     setFetchedData(filteredData);
+    setSelectedSection("all");
   };
 
   return (
     <div className="main-container">
       <div className="buttons">
         <h5>Sections:</h5>
-        <button onClick={() => allSections()}>All</button>
-        <button onClick={() => filterSections("A")}>A</button>
-        <button onClick={() => filterSections("B")}>B</button>
-        <button onClick={() => filterSections("C")}>C</button>
-        <button onClick={() => filterSections("D")}>D</button>
+        <button
+          className={SelectedSection === "all" ? "button-bg" : ""}
+          onClick={() => {
+            allSections();
+            setSelectedSection("all");
+          }}
+        >
+          All
+        </button>
+        <button
+          className={SelectedSection === "a" ? "button-bg" : ""}
+          onClick={() => {
+            filterSections("A");
+            setSelectedSection("a");
+          }}
+        >
+          A
+        </button>
+        <button
+          className={SelectedSection === "b" ? "button-bg" : ""}
+          onClick={() => {
+            filterSections("B");
+            setSelectedSection("b");
+          }}
+        >
+          B
+        </button>
+        <button
+          className={SelectedSection === "c" ? "button-bg" : ""}
+          onClick={() => {
+            filterSections("C");
+            setSelectedSection("c");
+          }}
+        >
+          C
+        </button>
+        <button
+          className={SelectedSection === "d" ? "button-bg" : ""}
+          onClick={() => {
+            filterSections("D");
+            setSelectedSection("d");
+          }}
+        >
+          D
+        </button>
       </div>
       <div className="search">
         <input
