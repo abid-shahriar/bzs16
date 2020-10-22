@@ -6,17 +6,25 @@ function DetailedInfo() {
     StudentsInfoContext
   );
 
-  SingleStudentInfo && console.log(SingleStudentInfo);
+  const removeLoadingImg = (e) => {
+    const parentElement = e.target.parentElement;
+    if (parentElement.classList.contains("img-loading")) {
+      parentElement.classList.remove("img-loading");
+    }
+  };
 
   return (
     <div className={ModalState ? "detailed-info show-hide" : "detailed-info"}>
       {SingleStudentInfo && (
         <div className="container">
           <div className="inner-container">
-            <div className="single-img">
+            <div
+              className={ModalState ? "single-img img-loading" : "single-img "}
+            >
               <img
                 src={ModalState ? `${SingleStudentInfo.photo}` : ""}
                 alt="bzs 16"
+                onLoad={removeLoadingImg}
               />
             </div>
             <h1>{SingleStudentInfo.Name}</h1>
