@@ -59,7 +59,7 @@ function DetailedInfo() {
               className="close-modal-btn"
               onClick={() => setModalState(false)}
             >
-              close &rarr;
+              Back &rarr;
             </div>
           </div>
         </div>

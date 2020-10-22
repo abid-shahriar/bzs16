@@ -1,28 +1,26 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
-// const navItems = ["home", "student-info", "gallery", "blog"];
-
-const navItems = [
-  {
-    name: "home",
-    to: "/",
-  },
-  {
-    name: "students-info",
-    to: "/student-info",
-  },
-];
+import { StudentsInfoContext } from "../states/AllStudentsInfo";
 
 const Navbar = () => {
+  const { NavState, setNavState } = useContext(StudentsInfoContext);
+
   return (
     <nav className="navbar">
       <ul className="navbar__lists">
-        {navItems.map((item) => (
-          <li key={item.name}>
-            <Link to={item.to}>{item.name}</Link>
-          </li>
-        ))}
+        <li
+          onClick={() => setNavState("home")}
+          className={NavState === "home" ? "active-nav" : ""}
+        >
+          <Link to="/">Home</Link>
+        </li>
+        <li
+          onClick={() => setNavState("student-info")}
+          className={NavState === "student-info" ? "active-nav" : ""}
+        >
+          <Link to="/student-info">Students-info</Link>
+        </li>
       </ul>
     </nav>
   );

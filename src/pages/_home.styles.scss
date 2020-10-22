@@ -1,19 +1,52 @@
 .home {
-  height: calc(100vh - 40vh);
+  height: 50vh;
   @include flexbox(column);
   justify-content: center;
+  background-color: #35363a;
+  color: whitesmoke;
+  padding: 4rem 0;
+  animation: comeFaded 0.3s linear;
+
+  @media (max-width: 700px) {
+    height: 55vh;
+  }
 
   h3 {
-    font-size: clamp(2rem, 2.5vw, 3.5rem);
+    font-size: 2.5rem;
     text-align: center;
     padding: 0 2rem;
     margin-bottom: 3rem;
+    width: 70%;
+    font-weight: 400;
+
+    @media (max-width: 700px) {
+      width: 100%;
+      font-size: 1.8rem;
+    }
   }
 
   h4 {
-    font-size: clamp(1.8rem, 2vw, 3rem);
+    font-size: 2rem;
     text-align: center;
     padding: 0 2rem;
-    font-weight: 400;
+    font-weight: 300;
+    width: 70%;
+
+    @media (max-width: 700px) {
+      width: 100%;
+      font-size: 1.4rem;
+    }
+  }
+
+  a {
+    font-size: 1.8rem;
+    color: crimson;
+    text-decoration: underline;
+    font-weight: 200;
+    margin-top: 3rem;
+
+    @media (max-width: 700px) {
+      font-size: 1.4rem;
+    }
   }
 }

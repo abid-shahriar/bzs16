@@ -21,10 +21,6 @@
       padding: 0 1rem;
     }
 
-    &:hover a:not(:hover) {
-      opacity: 0.6;
-    }
-
     li {
       a {
         display: inline-block;
@@ -35,7 +31,8 @@
         height: 7rem;
         @include flexbox;
         padding: 0 2rem;
-        transition: color 0.25s, opacity 0.25s, transform 0.25s linear;
+        transition: 0.25s;
+        border-bottom: 2px solid transparent;
 
         @media (max-width: 700px) {
           font-size: 1.6rem;
@@ -49,4 +46,8 @@
       }
     }
   }
+}
+
+.navbar .navbar__lists li.active-nav a {
+  border-bottom: 2px solid white;
 }

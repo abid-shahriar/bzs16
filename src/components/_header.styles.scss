@@ -1,5 +1,5 @@
 .header {
-  height: calc(100vh - 60vh);
+  height: 40vh;
   width: 100%;
   background-image: linear-gradient(
       120deg,
@@ -11,4 +11,8 @@
   background-position: center center;
   @include flexbox;
   align-items: flex-end;
+
+  @media (max-width: 700px) {
+    height: 30vh;
+  }
 }
