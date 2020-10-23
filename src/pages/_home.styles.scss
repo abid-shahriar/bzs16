@@ -5,7 +5,10 @@
   background-color: #35363a;
   color: whitesmoke;
   padding: 4rem 0;
-  animation: comeFaded 0.3s linear;
+
+  & > div {
+    margin-top: 3rem;
+  }
 
   @media (max-width: 700px) {
     height: 55vh;
@@ -39,11 +42,11 @@
   }
 
   a {
+    display: inline-block;
     font-size: 1.8rem;
     color: crimson;
     text-decoration: underline;
     font-weight: 200;
-    margin-top: 3rem;
 
     @media (max-width: 700px) {
       font-size: 1.4rem;

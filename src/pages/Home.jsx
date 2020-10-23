@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { StudentsInfoContext } from "../states/AllStudentsInfo";
+
 const Home = () => {
+  const { setNavState } = useContext(StudentsInfoContext);
   return (
     <>
       <div className="home">
@@ -16,8 +19,9 @@ const Home = () => {
           all kinds of students, including ghosts... As a result we do not know
           their info...yet..!!
         </h4>
-
-        <Link to="/student-info">View Students Info &rarr;</Link>
+        <div onClick={() => setNavState("student-info")}>
+          <Link to="/student-info">View Students Info &rarr;</Link>
+        </div>
       </div>
     </>
   );
