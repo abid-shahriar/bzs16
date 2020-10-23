@@ -6,7 +6,7 @@ function Footer() {
       <p>
         Design & Code <a href="https://abidshahriar.me">Abid Sh Akash</a>
       </p>
-      <p>&copy; no all rights reserved.</p>
+      <p>&copy; all rights reserved by no one actually</p>
     </footer>
   );
 }
