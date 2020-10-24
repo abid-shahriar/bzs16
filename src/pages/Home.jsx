@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import bzsLogo from "../assets/img/bzs-logo.png";
 
 import { StudentsInfoContext } from "../states/AllStudentsInfo";
 
@@ -8,6 +9,7 @@ const Home = () => {
   return (
     <>
       <div className="home">
+        <img src={bzsLogo} alt="bzs logo" />
         <h3>
           Hellu there, Welcome to the not so official website of Bogura Zilla
           School Batch 2016, also known as Fermion’16.
