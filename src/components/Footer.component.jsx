@@ -4,9 +4,16 @@ function Footer() {
   return (
     <footer>
       <p>
-        Design & Code <a href="https://abidshahriar.me">Abid Sh Akash</a>
+        Design & Code{" "}
+        <a
+          href="https://abidshahriar.me"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Abid Sh Akash
+        </a>
       </p>
-      <p>&copy; all rights reserved by no one actually</p>
+      <p>&reg; all rights reserved by no one actually</p>
     </footer>
   );
 }
