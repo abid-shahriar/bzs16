@@ -94,7 +94,9 @@ const StudentCard = () => {
         </button>
       </div>
       <div className="search">
+        <label htmlFor="search">Search</label>
         <input
+          name="search"
           type="text"
           placeholder="search by name"
           onChange={handleSearchInput}
@@ -106,7 +108,13 @@ const StudentCard = () => {
           fetchedData.map((data) => (
             <div className="student-card" key={data.Timestamp}>
               <div className="image">
-                <img src={bzsLogo} loading="lazy" alt="student bzs" />
+                <img
+                  src={bzsLogo}
+                  loading="lazy"
+                  alt="student bzs"
+                  height="100px"
+                  width="100px"
+                />
               </div>
               <div className="short-info">
                 <h1>{data.Name.toLowerCase()}</h1>
