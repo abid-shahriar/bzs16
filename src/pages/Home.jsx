@@ -6,6 +6,7 @@ import { StudentsInfoContext } from "../states/AllStudentsInfo";
 
 const Home = () => {
   const { setNavState } = useContext(StudentsInfoContext);
+
   return (
     <>
       <div className="home">

@@ -1,24 +1,16 @@
 import React from "react";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { StudentsInfoContext } from "../states/AllStudentsInfo";
+import { Link, withRouter } from "react-router-dom";
 
-const Navbar = () => {
-  const { NavState, setNavState } = useContext(StudentsInfoContext);
+const Navbar = (props) => {
+  const pathname = props.history.location.pathname;
 
   return (
     <nav className="navbar">
       <ul className="navbar__lists">
-        <li
-          onClick={() => setNavState("home")}
-          className={NavState === "home" ? "active-nav" : ""}
-        >
+        <li className={pathname === "/" ? "active-nav" : ""}>
           <Link to="/">Home</Link>
         </li>
-        <li
-          onClick={() => setNavState("student-info")}
-          className={NavState === "student-info" ? "active-nav" : ""}
-        >
+        <li className={pathname === "/student-info" ? "active-nav" : ""}>
           <Link to="/student-info">Students-info</Link>
         </li>
       </ul>
@@ -26,4 +18,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

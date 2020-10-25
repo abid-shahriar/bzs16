@@ -41,6 +41,10 @@ const StudentCard = () => {
 
   return (
     <div className="main-container">
+      <div className="img">
+        <img src={bzsLogo} alt="bzs logo" />
+      </div>
+
       <div className="buttons">
         <h5>Sections:</h5>
         <button
