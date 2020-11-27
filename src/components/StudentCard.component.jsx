@@ -39,6 +39,16 @@ const StudentCard = () => {
     setSelectedSection("all");
   };
 
+  const handleSelect = (e) => {
+    // setSelectedBlood(e.tatget.value);
+    if (e.target.value === "all") {
+      setFetchedData(reset);
+    } else {
+      const filteredData = reset.filter((data) => data.bloodGroup.toUpperCase() === e.target.value);
+      setFetchedData(filteredData);
+    }
+  };
+
   return (
     <div className="main-container">
       <div className="img">
@@ -103,23 +113,32 @@ const StudentCard = () => {
           value={SearchInput}
         />
       </div>
+
+      <div className="search-by-blood">
+        <select defaultValue="all" onChange={handleSelect}>
+          <option value="all">All</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+        </select>
+      </div>
       <div className="student-card-container">
         {fetchedData &&
           fetchedData.map((data) => (
-            <div className="student-card" key={data.Timestamp}>
+            <div className="student-card" key={data.Name}>
               <div className="image">
-                <img
-                  src={bzsLogo}
-                  loading="lazy"
-                  alt="student bzs"
-                  height="100px"
-                  width="100px"
-                />
+                <img src={bzsLogo} loading="lazy" alt="student bzs" height="100px" width="100px" />
               </div>
               <div className="short-info">
                 <h1>{data.Name.toLowerCase()}</h1>
                 <h2>Section: {data.section}</h2>
                 <h2>Class-10-Roll: {data.class10Roll}</h2>
+                <h2>Blood-Group: {data.bloodGroup}</h2>
               </div>
               <div className="more-info-btn">
                 <button

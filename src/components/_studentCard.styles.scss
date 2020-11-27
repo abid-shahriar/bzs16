@@ -186,6 +186,25 @@
   }
 }
 
+.search-by-blood {
+  width: 100%;
+  @include flexbox();
+  margin-bottom: 2rem;
+
+  select {
+    width: 20rem;
+    margin: 0 auto;
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    option {
+      padding: 0.5rem;
+    }
+  }
+}
+
 button.button-bg {
   background-color: crimson;
   border: 1px solid crimson;
