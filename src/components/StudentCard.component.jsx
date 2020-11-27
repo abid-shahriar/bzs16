@@ -115,7 +115,10 @@ const StudentCard = () => {
       </div>
 
       <div className="search-by-blood">
-        <select defaultValue="all" onChange={handleSelect}>
+        <select defaultValue="" onChange={handleSelect}>
+          <option value="" disabled hidden>
+            Search by Blood-Group
+          </option>
           <option value="all">All</option>
           <option value="A+">A+</option>
           <option value="A-">A-</option>
