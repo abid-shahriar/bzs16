@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useEffect } from "react";
 import bzsLogo from "../assets/img/bzs-logo.png";
 import { StudentsInfoContext } from "../states/AllStudentsInfo";
 import DetailedInfo from "./DetailedInfo";
@@ -14,40 +15,53 @@ const StudentCard = () => {
     setModalState,
     SelectedSection,
     setSelectedSection,
+    setSelectedBloodGroup,
+    SelectedBloodGroup,
   } = useContext(StudentsInfoContext);
 
   const filterSections = (section) => {
     const sectionAdata = reset.filter((data) => data.section === section);
     setFetchedData(sectionAdata);
     setSearchInput("");
+    setSelectedBloodGroup("");
   };
 
   const allSections = () => {
     setFetchedData(reset);
     setSearchInput("");
+    setSelectedBloodGroup("");
   };
 
-  const handleSearchInput = (e) => {
-    let inputValue = e.target.value;
-    setSearchInput(inputValue);
-
+  const handleSearchInput = (input) => {
+    if (!input) {
+      return;
+    }
     const filteredData = reset.filter((data) => {
       return data.Name.toLowerCase().includes(SearchInput.toLowerCase());
     });
 
     setFetchedData(filteredData);
     setSelectedSection("all");
+    setSelectedBloodGroup("");
   };
 
-  const handleSelect = (e) => {
-    // setSelectedBlood(e.tatget.value);
-    if (e.target.value === "all") {
+  const handleSelect = (state) => {
+    if (state === "") {
       setFetchedData(reset);
     } else {
-      const filteredData = reset.filter((data) => data.bloodGroup.toUpperCase() === e.target.value);
+      const filteredData = reset.filter(
+        (data) => data.bloodGroup.toUpperCase() === state
+      );
+
       setFetchedData(filteredData);
     }
   };
+
+  useEffect(() => {
+    handleSelect(SelectedBloodGroup);
+    handleSearchInput(SearchInput);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [SelectedBloodGroup, SearchInput]);
 
   return (
     <div className="main-container">
@@ -109,17 +123,20 @@ const StudentCard = () => {
           name="search"
           type="text"
           placeholder="search by name"
-          onChange={handleSearchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
           value={SearchInput}
         />
       </div>
 
       <div className="search-by-blood">
-        <select defaultValue="" onChange={handleSelect}>
+        <select
+          value={SelectedBloodGroup}
+          onChange={(e) => setSelectedBloodGroup(e.target.value)}
+        >
           <option value="" disabled hidden>
-            Search by Blood-Group
+            Search by Bloog-group
           </option>
-          <option value="all">All</option>
+          <option value="">All</option>
           <option value="A+">A+</option>
           <option value="A-">A-</option>
           <option value="B+">B+</option>
@@ -135,7 +152,13 @@ const StudentCard = () => {
           fetchedData.map((data) => (
             <div className="student-card" key={data.Name}>
               <div className="image">
-                <img src={bzsLogo} loading="lazy" alt="student bzs" height="100px" width="100px" />
+                <img
+                  src={bzsLogo}
+                  loading="lazy"
+                  alt="student bzs"
+                  height="100px"
+                  width="100px"
+                />
               </div>
               <div className="short-info">
                 <h1>{data.Name.toLowerCase()}</h1>

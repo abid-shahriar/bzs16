@@ -10,6 +10,7 @@ const AllStudentsInfo = (props) => {
   const [ModalState, setModalState] = useState(false);
   const [SelectedSection, setSelectedSection] = useState("all");
   const [NavState, setNavState] = useState("home");
+  const [SelectedBloodGroup, setSelectedBloodGroup] = useState("");
 
   useEffect(() => {
     fetch(
@@ -38,6 +39,8 @@ const AllStudentsInfo = (props) => {
         setSelectedSection,
         setNavState,
         NavState,
+        SelectedBloodGroup,
+        setSelectedBloodGroup,
       }}
     >
       {props.children}
