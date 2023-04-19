@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
 function Footer() {
   return (
     <footer>
       <p>
-        Design & Code{" "}
+        Design & Code{' '}
         <a
-          href="https://abidshahriar.me"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://abidshahriar.vercel.app'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           Abid Sh Akash
         </a>
